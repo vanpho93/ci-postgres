@@ -1,6 +1,8 @@
 const { equal } = require('assert')
 const { knex } = require('../db')
-const { createUser, TABLE_NAME } = require('../create-user')
+const { createUser, TABLE_NAME, createUserTable } = require('../create-user')
+
+before(() => createUserTable())
 
 beforeEach(async () => {
   await knex(TABLE_NAME).del()
